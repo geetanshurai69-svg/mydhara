@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    overflow: hidden;
+    color: white;
+}
+
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    transition: opacity 0.8s;
+}
+
+.screen.active {
+    display: flex;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: #ff4d6d;
+    color: white;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.dark {
+    background: #111;
+}
+
+#cake {
+    font-size: 80px;
+    cursor: pointer;
+    animation: float 2s infinite;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* CARD */
+.card {
+    width: 250px;
+    height: 150px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card .front,
+.card .inside {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.card .inside {
+    transform: rotateY(180deg);
+}
+
+.card.open {
+    transform: rotateY(180deg);
+    transition: 1s;
+}
+
+/* STORY */
+.story img {
+    width: 200px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* FLOATING HEARTS */
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: rise 5s linear infinite;
+}
+
+@keyframes rise {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
+}
