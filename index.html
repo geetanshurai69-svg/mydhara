@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Dhara 💖</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- TIMER SCREEN -->
+<div id="timer-screen" class="screen active">
+    <h2>Counting down to April 9...</h2>
+    <div id="countdown"></div>
+    <div id="typewriter"></div>
+</div>
+
+<!-- QUESTION -->
+<div id="question-screen" class="screen">
+    <h1>FLASHBACK OF OUR JOURNEY?</h1>
+    <button onclick="nextScreen('greeting-page')">Yes, show me ✨</button>
+</div>
+
+<!-- GREETING -->
+<div id="greeting-page" class="screen">
+    <h1>Happy 18th Birthday, DHARA 💖</h1>
+    <p>You are something truly special...</p>
+    <button onclick="nextScreen('cake-screen')">Cut the Cake 🎂</button>
+</div>
+
+<!-- CAKE -->
+<div id="cake-screen" class="screen dark">
+    <h2>Happy Birthday BBG 💖</h2>
+    <div id="cake">🎂</div>
+    <p id="cake-text">Tap the cake to light candles</p>
+</div>
+
+<!-- CARD -->
+<div id="card-screen" class="screen">
+    <div class="card" onclick="openCard()">
+        <div class="front">Tap to Open 💌</div>
+        <div class="inside">
+            <p>
+                Our journey has been beautiful...  
+                You are my peace, my comfort, my love 💖
+            </p>
+            <button onclick="nextScreen('story-screen')">Our Story ❤️</button>
+        </div>
+    </div>
+</div>
+
+<!-- STORY -->
+<div id="story-screen" class="screen">
+    <h2>Our Story 💫</h2>
+
+    <div class="story">
+        <img src="pic1.jpg">
+        <p>The beginning ✨</p>
+    </div>
+
+    <div class="story">
+        <img src="pic2.jpg">
+        <p>Your smile 😊</p>
+    </div>
+
+    <div class="story">
+        <img src="pic3.jpg">
+        <p>Your presence feels like home 🧡</p>
+    </div>
+
+    <button onclick="location.reload()">Replay ❤️</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
