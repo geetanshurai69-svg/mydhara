@@ -1,83 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Dhara 💖</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Dhara</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<audio id="bg-music" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+    <audio id="bg-music" loop>
+        <source src="just-you-and-me-punabi-hiphop-music-430754.mp3" type="audio/mpeg">
+    </audio>
 
-<!-- TIMER SCREEN -->
-<div id="timer-screen" class="screen active">
-    <h2>Counting down to April 9...</h2>
-    <div id="countdown"></div>
-    <div id="typewriter"></div>
-</div>
+    <div id="timer-screen" class="full-screen">
+        <h2 class="timer-label">Counting down to april 9...</h2>
+        <div id="countdown">00:00:00:00</div>
+        <div id="typewriter-text"></div>
+    </div>
 
-<!-- QUESTION -->
-<div id="question-screen" class="screen">
-    <h1>FLASHBACK OF OUR JOURNEY?</h1>
-    <button onclick="nextScreen('greeting-page')">Yes, show me ✨</button>
-</div>
+    <div id="question-screen" class="full-screen hidden">
+        <h1 class="question-text">FLASHBACK OF OUR JOURNEY?</h1>
+        <button class="main-btn" onclick="showGreetingPage()">Yes, show me! ✨</button>
+    </div>
 
-<!-- GREETING -->
-<div id="greeting-page" class="screen">
-    <h1>Happy 18th Birthday, DHARA 💖</h1>
-    <p>You are something truly special...</p>
-    <button onclick="nextScreen('cake-screen')">Cut the Cake 🎂</button>
-</div>
-
-<!-- CAKE -->
-<div id="cake-screen" class="screen dark">
-    <h2>Happy Birthday BBG 💖</h2>
-    <div id="cake">🎂</div>
-    <p id="cake-text">Tap the cake to light candles</p>
-</div>
-
-<!-- CARD -->
-<div id="card-screen" class="screen">
-    <div class="card" onclick="openCard()">
-        <div class="front">Tap to Open 💌</div>
-        <div class="inside">
-            <p>
-                Our journey has been beautiful...  
-                You are my peace, my comfort, my love 💖
-            </p>
-            <button onclick="nextScreen('story-screen')">Our Story ❤️</button>
+    <div id="greeting-page" class="full-screen hidden">
+        <div class="greeting-box">
+            <h1 class="fancy-text">Happy 18th Birthday, DHARA !</h1>
+            <p>Before we celebrate, I want you to know how special you are...</p>
+            <p>A day full of surprises awaits you.</p>
+            <button class="main-btn" onclick="startCelebration()">Let's Cut the Cake! 🎂</button>
         </div>
     </div>
-</div>
 
-<!-- STORY -->
-<div id="story-screen" class="screen">
-    <h2>Our Story 💫</h2>
-
-    <div class="story">
-        <img src="pic1.jpg">
-        <p>The beginning ✨</p>
+    <div id="cake-screen" class="full-screen hidden dark-room">
+        <div class="party-decor">✨ ✨ ✨ ✨ ✨</div>
+        <div class="balloon-container">
+            <span>🎈</span><span>💖</span><span>🎈</span><span>💖</span><span>🎈</span>
+        </div>
+        <h2 class="bbg-msg">Happy Birthday BBG! 💖</h2>
+        
+        <div class="cake-container">
+            <div class="candles">
+                <div class="flame hidden"></div>
+                <div class="flame hidden"></div>
+                <div class="flame hidden"></div>
+            </div>
+            <div id="cake-emoji" onclick="handleCakeClick()">🎂</div>
+        </div>
+        <p id="cake-hint">Waiting for the candles...</p>
     </div>
 
-    <div class="story">
-        <img src="pic2.jpg">
-        <p>Your smile 😊</p>
+    <div id="card-screen" class="full-screen hidden">
+        <div class="card-wrapper">
+            <div id="birthday-card" class="card" onclick="this.classList.add('open')">
+                <div class="card-front">
+                    <h3>Tap to Open 💌</h3>
+                    <p>A message from your SONAL</p>
+                </div>
+                <div class="card-inside">
+                    <div class="poem-text">
+
+<p>Our journey has been a beautiful one. Our relationship is a quiet strength for both of us in this accursed and mean world, a strength that continues to grow with time.</p>
+
+<p>And that is exactly what I want — the reason we exist in each other’s lives: to fulfil a purpose decided by destiny and by ourselves. Our will greater than everything else, to always be together. Your presence never fails to make me believe in better things. You light my world just by being there.</p>
+
+<p>Myself, <strong>SONAL</strong>, a soul of intense emotions.</p>
+
+<p>And maybe that’s why we were paired by destiny. The timing of our meetings can’t just be coincidences. When I met you, I finally knew where I belong… and now we both know where you belong too. (haha)</p>
+
+<p>Beyond names, meanings, and relationships, there is our connection of souls — something that has always felt natural, comforting, and perfectly in sync.</p>
+
+<p><strong>HAPPY BIRTHDAY — MY EXCITEMENT, MY COMFORT, MY PEACE, MY LOVE, MY DHARA.</strong></p>
+
+                        <button class="story-btn" onclick="showStory()">Our Story ❤️</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="story">
-        <img src="pic3.jpg">
-        <p>Your presence feels like home 🧡</p>
+    <div id="story-screen" class="full-screen hidden">
+        <div class="story-container">
+            <h2 class="story-title">Our Story</h2>
+            
+            <div class="story-item">
+                <img src="pic5.jpg.jpeg">
+                <p><strong>The Beginning:</strong> It all started with a simple moment, but somehow it felt different. From that day, every conversation became a memory I didn’t want to forget. ✨</p>
+            </div>
+
+            <div class="story-item">
+                <img src="pic2.jpg.jpeg">
+                <p><strong>Your Smile:</strong> There’s something about your smile that makes everything feel lighter. No matter how the day goes, seeing you changes it instantly. 😊</p>
+            </div>
+
+            <div class="story-item">
+                <img src="pic6.jpg.jpeg">
+                <p><strong>The Comfort:</strong> Talking to you became my favorite habit. In your words, I found calm, and in your presence, I found a place that feels like home. 🧡</p>
+            </div>
+
+            <div class="story-item">
+                <img src="pic1.jpg.jpeg">
+                <p><strong>Little Moments:</strong> It’s not just the big memories, but the small ones with you that mean the most. Every laugh, every silence, every second matters. ✨</p>
+            </div>
+
+            <div class="story-item">
+                <img src="pic4.jpg.jpeg">
+                <p><strong>Pure Happiness:</strong> Being with you makes ordinary days special. You turned simple moments into something I’ll always hold close. 🎵</p>
+            </div>
+
+            <div class="story-item">
+                <img src="pic3.jpg.jpeg">
+                <p><strong>The Future:</strong> No matter where life takes us, I just hope there are many more memories waiting ahead. With you, every tomorrow feels exciting. 💫</p>
+            </div>
+
+            <div class="final-note">
+                <p>I'll be with you always.</p>
+            </div>
+            <button class="main-btn" onclick="location.reload()">Replay ❤️</button>
+        </div>
     </div>
 
-    <button onclick="location.reload()">Replay ❤️</button>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-<script src="script.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
